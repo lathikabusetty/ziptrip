@@ -1,0 +1,68 @@
+﻿/* General styling for boxes */
+body {
+    font-family: sans-serif;
+}
+
+.box {
+    height: 100px;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.left { background-color: #e74c3c; }
+.middle { background-color: #3498db; }
+.right { background-color: #2ecc71; }
+
+/* Method 1: Flexbox */
+.container-flex {
+    display: flex;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.container-flex .left {
+    width: 100px;
+    flex-shrink: 0;
+}
+.container-flex .right {
+    width: 100px;
+    flex-shrink: 0;
+}
+.container-flex .middle {
+    flex-grow: 1;
+    overflow: hidden; /* Prevents overlap if content is too wide */
+}
+
+/* Method 2: CSS Grid */
+.container-grid {
+    display: grid;
+    grid-template-columns: 100px 1fr 100px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* Method 3: Absolute Positioning */
+.container-absolute {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    margin-bottom: 20px;
+}
+.container-absolute .left {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100px;
+}
+.container-absolute .right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100px;
+}
+.container-absolute .middle {
+    margin-left: 100px;
+    margin-right: 100px;
+    height: 100%; /* need to set height explicitly since it's not flex/grid */
+}
